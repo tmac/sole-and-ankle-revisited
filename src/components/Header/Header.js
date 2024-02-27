@@ -32,6 +32,7 @@ const Header = () => {
           <NavLink href="/women">Women</NavLink>
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
+          <NavLink href="/women">Women</NavLink>
         </DesktopNav>
         <MobileNav>
           <UnstyledButton>
@@ -59,21 +60,21 @@ const Header = () => {
 
 const Filler = styled.div`
   flex: 1;
-
+  
   @media ${QUERIES.tabletAndSmaller} {
     display: none;
   }
-`
+  `
 
 const LogoWrapper = styled.div`
   flex: 1;
-`
+  `
 
 const MainHeader = styled.div`
+  overflow: auto;
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
   border-top: 4px solid ${COLORS.gray[900]};
 
@@ -85,9 +86,13 @@ const MainHeader = styled.div`
 const DesktopNav = styled.nav`
   flex: 1;
   display: flex;
-  gap: 48px;
+  gap: clamp(
+    1rem,
+    5.5vw - 2.25rem,
+    3rem
+  );
   margin: 0px 48px;
-
+  
   @media ${QUERIES.tabletAndSmaller} {
     display: none;
   }
